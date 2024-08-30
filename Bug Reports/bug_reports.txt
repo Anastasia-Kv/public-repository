@@ -1,0 +1,65 @@
+id: 1
+severity: Moderate
+build: 1.0 (0.23)
+OS: iOS 15.5
+Tested on device: iPhone 10
+Module: Create account, Profile
+Summary: Can't add more than 2 words for the Full Name field
+Steps:
+1. Open the form to create account
+2. Fill in the fields Employer, Email, Password with valid data 
+3. Add more than 2 words to the Full Name field (e.g "1 2 3")
+4. Press the Continue button
+5. Set "No, this is for someone else" for the field Are you primary care recipient?
+Or is this for someone else?
+6. Press the button Create my account
+7. Open the Profile section
+8. Check the information for the Caregiver profile
+Actual Result: Only first 2 words are displayed for the Full Name field. Only these  words were used to pass to the server. They were separated into two parametes: "fname","lname".
+Expected Result: No limit for the number of words for the Full Name field/ Add the limitation on the client side to allow only 2 words
+
+
+id: 2
+severity: Moderate
+build: 1.0 (0.23)
+OS: iOS 15.5
+Tested on device: iPhone 10
+Module: Create account, Profile
+Summary: Error message when Full Name contains space symbol at the beginning
+Steps:
+1. Open the form to create account
+2. Fill in the fields Employer, Email, Password with valid data
+3. Enter the value in the Full Name field, add space symbol at the begining ( e.g " Full")
+4. Press the Continue button
+5. Set "No, this is for someone else" for the field Are you primary care recipient? Or is this for someone else?
+6. Press the button Create my account
+Actual Result: Error message: "Some of the required information was not filled in". Also reproduced for the Profile section (Caregiver profile)
+Expected Result: All space symbols at the beginning of the Full Name field value are cut off
+
+
+id: 3
+severity: Major
+build: 1.0 (0.23)
+OS: iOS 15.5
+Tested on device: iPhone 10
+Module: Create case
+Summary: D.O.B, Address aren't passed to server when the case for care recepient is created
+Steps:
+Preconditions:
+1. Start the app
+2. Press the Create Account button
+3. Fill in the form with valid data
+4. Press the Continue button
+5. Select No, this is for someone else option
+6. Fill in the fields Full name, Recepient's Email, Recepient's Date of Birth, Recepient' Mailing Address
+7. Press the Create My Account Button
+
+Steps:
+1. Start the App
+2. Sign in under the user from Preconditions
+3. Press Start a Case button
+4. Select the name of created care recepient in the list "I need help for"
+5. Press the Submit button
+6. Open the list of cases in the Admin version
+Actual Result: D.O.B, Address parameters aren't sent in json when the case for Care Recepint is submitted. The Admin version contains these fields to display in the list of cases
+Expected Result: Sumbit D.O.B, Address parameters when case for care recepient is created. Display this data in the D.O.B, Address fields of the case in the Admin version
