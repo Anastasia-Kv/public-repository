@@ -1,0 +1,34 @@
+Common Pre-conditions:
+1. Appropriate build APEX 2.0 was installed on the appropriate system.
+2. APEX 2.0 was set up properly.
+3. DDC connection parameters were set up in the CCF configuration file.
+4. DDC configuration was saved in the DB.
+5. Supervisor was launched and set up successfully.
+6. OI was launched successfully.
+7.The user having the highest privilege level was logged in.
+8. "Control" mode was activated.
+9. A DDC was initialized successfully
+
+Summary: Install the new version of application (Typical setup option)
+
+ID: INST-TP
+
+Pre-conditions: Previous application version is removed
+
+Steps to Reproduce	
+1.Launch the installation file
+2.Press the Next button.
+3.Check the box to accept the terms for License Agreement and press the Next button
+4.Select the Typical option
+5.Press the Install button
+6.Uncheck the box Launch Cimetrix Installation Assistant and press Finish
+7.Launch the Supervisor	
+
+Expected Results
+1. Setup wizard opens. Next and Cancel buttons are available
+2. The license text is displayed. The buttons Print, Back, Next and Cancel are available. Next button is disabled
+3. The following setup types are available: Typical, Custom, Complete. The buttons Next, Back, Cancel. The button Next is disabled
+4. New window opens. The buttons Back, Install, Cancel are available
+5. Progress bar appears. After setup is complete the window stating the setup finish is displayed. There is the option to launch Cimetrix Installation Assistant.
+6. Installation window closes
+7. The application starts without exceptions
